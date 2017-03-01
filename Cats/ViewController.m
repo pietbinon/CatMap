@@ -16,6 +16,7 @@
 
 @property NSMutableArray  *storeAllPhotos;
 @property (nonatomic, strong) NetworkManager *networkManager;
+@property (nonatomic, strong) Photo *testPhoto;
 
 @end
 
@@ -24,13 +25,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    [self giveMeNSURL];
+    
     self.storeAllPhotos = [NSMutableArray array];
     self.networkManager = [[NetworkManager alloc]init];
+    
+    self.testPhoto = [[Photo alloc] init];
     
     [self.networkManager getPicturesWithCompletion:^(NSMutableArray *photos) {
         self.storeAllPhotos = photos;
         [self.collectionView reloadData];
     }];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -39,18 +45,15 @@
 }
 
 
--(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
-{
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return 1;
 }
 
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
-{
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return [self.storeAllPhotos count];
 }
 
--(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
-{
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     CatsCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"myCell" forIndexPath:indexPath];
     cell.photo = self.storeAllPhotos[indexPath.item];
     return cell;
@@ -58,5 +61,23 @@
 }
 
 
+- (NSURL *)giveMeNSURL {
+
+    NSDictionary *queryDict = @{@"method" : @"flickr.photos.search", @"api_key" : @"500a485bcdb5d40ef46da98c4c7f8806", @"tags" : @"cat", @"has_geo" : @"1", @"extras" : @"url_m", @"format" : @"json", @"nojsoncallback" : @"1"};
+    
+    NSMutableArray *queries = [NSMutableArray new];
+    for (NSString *key in queryDict) {
+        [queries addObject:[NSURLQueryItem queryItemWithName:key value:queryDict[key]]];
+    }
+    
+    NSURLComponents *components = [[NSURLComponents alloc] init];
+    components.scheme = @"https";
+    components.host = @"api.flickr.com";
+    components.path = @"/services/rest/";
+    components.queryItems = queries;
+    
+    NSLog(@"PRINT URL: %@", components.URL);
+    return components.URL;
+}
 
 @end
