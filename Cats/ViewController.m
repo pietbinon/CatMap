@@ -24,8 +24,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    [self giveMeNSURL];
     
     self.storeAllPhotos = [NSMutableArray array];
     self.networkManager = [[NetworkManager alloc]init];

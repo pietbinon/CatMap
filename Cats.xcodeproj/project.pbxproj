@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DAFA24F31E67332D00C87CE4 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAFA24F21E67332D00C87CE4 /* MapKit.framework */; };
 		DAFC65F51E64F24700842225 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DAFC65F41E64F24700842225 /* main.m */; };
 		DAFC65F81E64F24700842225 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DAFC65F71E64F24700842225 /* AppDelegate.m */; };
 		DAFC65FB1E64F24700842225 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAFC65FA1E64F24700842225 /* ViewController.m */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DAFA24F21E67332D00C87CE4 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		DAFC65F01E64F24700842225 /* Cats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cats.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAFC65F41E64F24700842225 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		DAFC65F61E64F24700842225 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -44,17 +46,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DAFA24F31E67332D00C87CE4 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DAFA24F11E67332D00C87CE4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DAFA24F21E67332D00C87CE4 /* MapKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		DAFC65E71E64F24700842225 = {
 			isa = PBXGroup;
 			children = (
 				DAFC65F21E64F24700842225 /* Cats */,
 				DAFC65F11E64F24700842225 /* Products */,
+				DAFA24F11E67332D00C87CE4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -334,6 +346,7 @@
 				DAFC660C1E64F24700842225 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
