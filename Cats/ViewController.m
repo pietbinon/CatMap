@@ -61,23 +61,5 @@
 }
 
 
-- (NSURL *)giveMeNSURL {
-
-    NSDictionary *queryDict = @{@"method" : @"flickr.photos.search", @"api_key" : @"500a485bcdb5d40ef46da98c4c7f8806", @"tags" : @"cat", @"has_geo" : @"1", @"extras" : @"url_m", @"format" : @"json", @"nojsoncallback" : @"1"};
-    
-    NSMutableArray *queries = [NSMutableArray new];
-    for (NSString *key in queryDict) {
-        [queries addObject:[NSURLQueryItem queryItemWithName:key value:queryDict[key]]];
-    }
-    
-    NSURLComponents *components = [[NSURLComponents alloc] init];
-    components.scheme = @"https";
-    components.host = @"api.flickr.com";
-    components.path = @"/services/rest/";
-    components.queryItems = queries;
-    
-    NSLog(@"PRINT URL: %@", components.URL);
-    return components.URL;
-}
 
 @end
