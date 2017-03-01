@@ -8,33 +8,31 @@
 
 #import "NetworkManager.h"
 @interface NetworkManager () {
+
     
 }
+
+
 @end
+
 
 @implementation NetworkManager
 
 // Completion Handler
 - (void)getPicturesWithCompletion:(void (^)(NSMutableArray *))completion {
     // go fetch data
-    //NSURL *url = [NSURL URLWithString:@"https://api.flickr.com/services/rest/?method=flickr.photos.search&format=json&nojsoncallback=1&api_key=500a485bcdb5d40ef46da98c4c7f8806&tags=cat"];
     NSURL * url = [self giveMeNSURL];
     NSURLRequest *urlRequest = [[NSURLRequest alloc] initWithURL:url];
     NSURLSessionConfiguration *configure = [NSURLSessionConfiguration defaultSessionConfiguration];
     NSURLSession *configureSession = [NSURLSession sessionWithConfiguration:configure];
     
-    NSURLSessionDataTask *dataTask = [configureSession
-                                      dataTaskWithRequest:urlRequest
-                                      completionHandler:^
-                                      (NSData * _Nullable data,
-                                       NSURLResponse * _Nullable response,
-                                       NSError * _Nullable error) {
-                                          
+    self.dataTask = [configureSession dataTaskWithRequest:urlRequest completionHandler:^
+                                      (NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error){
+                                        
                                           if (error) {
                                               
                                               NSLog(@"error: %@", error.localizedDescription);
                                               return;
-                                              
                                           }
                                           NSError *jsonError = nil;
                                           NSDictionary *tempDictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonError];
@@ -49,24 +47,17 @@
                                           NSMutableArray *storeAllImages = [NSMutableArray array];
 
                                           for(NSDictionary *tempPhotoDictionary in photos) {
-                                              
-                                              
-                                              // Get title of the image
-                                              NSString *title = [tempPhotoDictionary objectForKey:@"title"];
-                                            
-                                              Photo *newPhoto = [[Photo alloc] initWithServer:[tempPhotoDictionary objectForKey:@"server"] initWithFarm:[tempPhotoDictionary objectForKey:@"farm"] initWithID:[tempPhotoDictionary objectForKey:@"id"] initWithSecret:[tempPhotoDictionary objectForKey:@"secret"] initWithTitle:title initWithURL:url];
-                                              
-                                              
+                                              Photo *newPhoto = [[Photo alloc] initWithServer:[tempPhotoDictionary objectForKey:@"server"] initWithFarm:[tempPhotoDictionary objectForKey:@"farm"] initWithID:[tempPhotoDictionary objectForKey:@"id"] initWithSecret:[tempPhotoDictionary objectForKey:@"secret"] initWithTitle:[tempPhotoDictionary objectForKey:@"title"] initWithURL:url];
                                               [storeAllImages addObject:newPhoto];
-                                            
                                               NSLog(@"%@",storeAllImages);
                                           }
+                                          
                                           [[NSOperationQueue mainQueue] addOperationWithBlock:^{
                                               //This will run on the main queue
                                               completion(storeAllImages);
                                           }];
                                       }];
-    [dataTask resume];
+    [self.dataTask resume];
 }
 
 //Download Images from URL
@@ -122,5 +113,6 @@
     NSLog(@"PRINT URL: %@", components.URL);
     return components.URL;
 }
+
 
 @end

@@ -12,6 +12,8 @@
 
 @interface NetworkManager : NSObject
 
+@property (nonatomic) NSURLSessionDataTask *dataTask;
+
 - (void)getPicturesWithCompletion:(void (^)(NSMutableArray *))completion;
 - (void)downloadImagesFromURL:(NSURL *)url completion:(void (^)(UIImage *))completion;
 

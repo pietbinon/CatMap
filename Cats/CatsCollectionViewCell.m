@@ -31,4 +31,10 @@
 
 }
 
+- (void)prepareForReuse {
+    [super prepareForReuse];
+    [self.networkManager.dataTask cancel];
+
+    
+}
 @end

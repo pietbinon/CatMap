@@ -16,6 +16,7 @@
 
 @property NSMutableArray  *storeAllPhotos;
 @property (nonatomic, strong) NetworkManager *networkManager;
+@property (nonatomic, strong) CatsCollectionViewCell *catsCollectionViewCell;
 @property (nonatomic, strong) Photo *testPhoto;
 
 @end
@@ -32,8 +33,11 @@
     
     [self.networkManager getPicturesWithCompletion:^(NSMutableArray *photos) {
         self.storeAllPhotos = photos;
+        
         [self.collectionView reloadData];
     }];
+        
+
     
 }
 
