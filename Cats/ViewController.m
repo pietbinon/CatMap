@@ -67,12 +67,19 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
-    if ([segue.identifier isEqualToString:@"goToDetailVC"]) {
+    if ([segue.identifier isEqualToString:@"goToDetailViewController"]) {
         Photo *photo = [self.storeAllPhotos objectAtIndex:self.indexPath.row];
         DetailViewController *detailViewController = segue.destinationViewController;
         detailViewController.photo = photo;
     }
     
 }
+
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self performSegueWithIdentifier:@"goToDetailViewController" sender:self];
+}
+
+
 
 @end
