@@ -71,12 +71,13 @@
         Photo *photo = [self.storeAllPhotos objectAtIndex:self.indexPath.row];
         DetailViewController *detailViewController = segue.destinationViewController;
         detailViewController.photo = photo;
+
     }
     
 }
 
--(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
-{
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    self.indexPath = indexPath;
     [self performSegueWithIdentifier:@"goToDetailViewController" sender:self];
 }
 

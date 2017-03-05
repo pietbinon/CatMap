@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -93,23 +94,75 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lQz-ey-Ji1">
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lQz-ey-Ji1">
                                 <rect key="frame" x="0.0" y="20" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
-                                    <navigationItem title="Map View" id="kn7-DG-xt3">
+                                    <navigationItem id="kn7-DG-xt3">
                                         <barButtonItem key="backBarButtonItem" title="Back" id="5ec-87-act"/>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="6h8-sf-G1F">
-                                <rect key="frame" x="16" y="72" width="288" height="200"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="6h8-sf-G1F">
+                                <rect key="frame" x="35" y="322" width="250" height="150"/>
                             </mapView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wtc-d3-mQi">
+                                <rect key="frame" x="35" y="72" width="250" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="fom-Ki-izc"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e37-Kp-hvx">
+                                <rect key="frame" x="243" y="246" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Latitude     :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pnV-z5-Bhy">
+                                <rect key="frame" x="35" y="246" width="90" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Longtitude :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1PX-9O-LgA">
+                                <rect key="frame" x="35" y="286" width="92" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dHj-ek-qrb">
+                                <rect key="frame" x="243" y="285" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="pnV-z5-Bhy" firstAttribute="top" secondItem="wtc-d3-mQi" secondAttribute="bottom" constant="24" id="2AZ-PL-Fnf"/>
+                            <constraint firstItem="wtc-d3-mQi" firstAttribute="leading" secondItem="pnV-z5-Bhy" secondAttribute="leading" id="3kn-T4-vN5"/>
+                            <constraint firstItem="wtc-d3-mQi" firstAttribute="leading" secondItem="6h8-sf-G1F" secondAttribute="leading" id="BFu-St-8lJ"/>
+                            <constraint firstItem="cCa-L1-EGA" firstAttribute="top" secondItem="6h8-sf-G1F" secondAttribute="bottom" constant="8" symbolic="YES" id="BOz-9Z-Npe"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="e37-Kp-hvx" secondAttribute="trailing" constant="19" id="Bcj-z7-7AI"/>
+                            <constraint firstItem="pnV-z5-Bhy" firstAttribute="leading" secondItem="GUQ-KX-ZQ8" secondAttribute="leadingMargin" constant="19" id="Jfu-4v-9BH"/>
+                            <constraint firstItem="6h8-sf-G1F" firstAttribute="top" secondItem="1PX-9O-LgA" secondAttribute="bottom" constant="15" id="QdB-rU-rOf"/>
+                            <constraint firstItem="wtc-d3-mQi" firstAttribute="centerX" secondItem="lQz-ey-Ji1" secondAttribute="centerX" id="Qlm-EW-kjK"/>
+                            <constraint firstItem="e37-Kp-hvx" firstAttribute="top" secondItem="wtc-d3-mQi" secondAttribute="bottom" constant="24" id="RFl-Et-JaA"/>
+                            <constraint firstItem="wtc-d3-mQi" firstAttribute="centerX" secondItem="GUQ-KX-ZQ8" secondAttribute="centerX" id="SCI-PX-swG"/>
+                            <constraint firstItem="1PX-9O-LgA" firstAttribute="leading" secondItem="GUQ-KX-ZQ8" secondAttribute="leadingMargin" constant="19" id="buK-3c-Vvt"/>
+                            <constraint firstItem="lQz-ey-Ji1" firstAttribute="leading" secondItem="GUQ-KX-ZQ8" secondAttribute="leading" id="dN7-Ra-jZv"/>
+                            <constraint firstItem="1PX-9O-LgA" firstAttribute="top" secondItem="pnV-z5-Bhy" secondAttribute="bottom" constant="19" id="eaZ-ce-AZB"/>
+                            <constraint firstItem="6h8-sf-G1F" firstAttribute="centerX" secondItem="lQz-ey-Ji1" secondAttribute="centerX" id="f3I-xa-edW"/>
+                            <constraint firstItem="lQz-ey-Ji1" firstAttribute="bottom" secondItem="FkY-MU-hAY" secondAttribute="bottom" id="g6a-su-F33"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="dHj-ek-qrb" secondAttribute="trailing" constant="19" id="kmn-yi-ZcW"/>
+                            <constraint firstItem="dHj-ek-qrb" firstAttribute="top" secondItem="e37-Kp-hvx" secondAttribute="bottom" constant="18" id="mVG-vB-Ucy"/>
+                            <constraint firstItem="6h8-sf-G1F" firstAttribute="centerX" secondItem="GUQ-KX-ZQ8" secondAttribute="centerX" id="oqb-96-r5X"/>
+                            <constraint firstItem="wtc-d3-mQi" firstAttribute="top" secondItem="FkY-MU-hAY" secondAttribute="bottom" constant="8" id="xnn-BW-ACP"/>
+                        </constraints>
                     </view>
                     <connections>
+                        <outlet property="imageView" destination="wtc-d3-mQi" id="TJr-Ff-qDM"/>
+                        <outlet property="latitudeLabel" destination="e37-Kp-hvx" id="fZR-aG-8SI"/>
+                        <outlet property="longtitudeLabel" destination="dHj-ek-qrb" id="mad-h1-DzV"/>
                         <outlet property="mapView" destination="6h8-sf-G1F" id="6bN-gT-33U"/>
                     </connections>
                 </viewController>
