@@ -28,7 +28,6 @@
     [self.networkManager downloadImagesFromURL:self.photo.photoURL completion:^(UIImage *image) {
         self.catImageView.image = image;
     }];
-
 }
 
 - (void)prepareForReuse {

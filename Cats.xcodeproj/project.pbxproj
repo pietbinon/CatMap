@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DA4C9B2D1E6C7A870023C89E /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA4C9B2C1E6C7A870023C89E /* DetailViewController.m */; };
 		DAFA24F31E67332D00C87CE4 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAFA24F21E67332D00C87CE4 /* MapKit.framework */; };
 		DAFC65F51E64F24700842225 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DAFC65F41E64F24700842225 /* main.m */; };
 		DAFC65F81E64F24700842225 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DAFC65F71E64F24700842225 /* AppDelegate.m */; };
@@ -21,6 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DA4C9B2B1E6C7A870023C89E /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		DA4C9B2C1E6C7A870023C89E /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		DAFA24F21E67332D00C87CE4 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		DAFC65F01E64F24700842225 /* Cats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cats.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAFC65F41E64F24700842225 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -97,6 +100,8 @@
 				DAFC66111E65121200842225 /* Photo.m */,
 				DAFC66131E656BE700842225 /* NetworkManager.h */,
 				DAFC66141E656BE700842225 /* NetworkManager.m */,
+				DA4C9B2B1E6C7A870023C89E /* DetailViewController.h */,
+				DA4C9B2C1E6C7A870023C89E /* DetailViewController.m */,
 			);
 			path = Cats;
 			sourceTree = "<group>";
@@ -184,6 +189,7 @@
 				DAFC66121E65121200842225 /* Photo.m in Sources */,
 				DAFC66151E656BE700842225 /* NetworkManager.m in Sources */,
 				DAFC66011E64F24700842225 /* Cats.xcdatamodeld in Sources */,
+				DA4C9B2D1E6C7A870023C89E /* DetailViewController.m in Sources */,
 				DAFC65FB1E64F24700842225 /* ViewController.m in Sources */,
 				DAFC65F81E64F24700842225 /* AppDelegate.m in Sources */,
 				DAFC65F51E64F24700842225 /* main.m in Sources */,

@@ -18,6 +18,8 @@
 @property (nonatomic, strong) NetworkManager *networkManager;
 @property (nonatomic, strong) CatsCollectionViewCell *catsCollectionViewCell;
 @property (nonatomic, strong) Photo *testPhoto;
+@property (nonatomic) NSIndexPath *indexPath;
+
 
 @end
 
@@ -63,5 +65,14 @@
 }
 
 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    if ([segue.identifier isEqualToString:@"goToDetailVC"]) {
+        Photo *photo = [self.storeAllPhotos objectAtIndex:self.indexPath.row];
+        DetailViewController *detailViewController = segue.destinationViewController;
+        detailViewController.photo = photo;
+    }
+    
+}
 
 @end

@@ -10,6 +10,7 @@
 #import "Photo.h"
 #import "NetworkManager.h"
 #import "CatsCollectionViewCell.h"
+#import "DetailViewController.h"
 
 @interface ViewController : UIViewController
 
