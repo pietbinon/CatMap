@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "Photo.h"
+#import "NetworkManager.h"
 
 @interface DetailViewController : UIViewController
 
 @property (nonatomic, strong) Photo *photo;
-
 
 @end

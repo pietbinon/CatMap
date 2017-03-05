@@ -114,5 +114,35 @@
     return components.URL;
 }
 
+- (void)getGeoLocation:(Photo *)photo completion:(void (^)(CLLocationCoordinate2D))completion {
+    
+    NSString *urlString = [NSString stringWithFormat:@"https://api.flickr.com/services/rest/?method=flickr.photos.geo.getLocation&api_key=500a485bcdb5d40ef46da98c4c7f8806&photo_id=%@&format=json&nojsoncallback=1", photo.photoID];
+    
+    NSURL *url = [NSURL URLWithString:urlString];
+    
+    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url];
+    
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration];
+    
+    NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:urlRequest completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        
+        if (error) {
+            NSLog(@"%@", error.localizedDescription);
+            return;
+        }
+        NSError *jsonError = nil;
+        NSDictionary *tempDictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonError];
+        NSDictionary *photoDictionary = tempDictionary[@"photo"];
+        NSDictionary *locationDictionary = photoDictionary[@"location"];
+        
+        CLLocationCoordinate2D coordinates = CLLocationCoordinate2DMake([locationDictionary[@"latitude"] doubleValue], [locationDictionary[@"longitude"] doubleValue]);
+        
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            completion(coordinates);
+        }];
+    }];
+    [dataTask resume];
+}
 
 @end

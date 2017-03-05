@@ -16,5 +16,6 @@
 
 - (void)getPicturesWithCompletion:(void (^)(NSMutableArray *))completion;
 - (void)downloadImagesFromURL:(NSURL *)url completion:(void (^)(UIImage *))completion;
+- (void)getGeoLocation:(Photo *)photo completion:(void (^)(CLLocationCoordinate2D))completion;
 
 @end
