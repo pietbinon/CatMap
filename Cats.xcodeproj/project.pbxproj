@@ -89,19 +89,15 @@
 				DAFC65F91E64F24700842225 /* ViewController.h */,
 				DAFC65FA1E64F24700842225 /* ViewController.m */,
 				DAFC65FC1E64F24700842225 /* Main.storyboard */,
-				DAFC66021E64F24700842225 /* Assets.xcassets */,
-				DAFC66041E64F24700842225 /* LaunchScreen.storyboard */,
-				DAFC66071E64F24700842225 /* Info.plist */,
-				DAFC65FF1E64F24700842225 /* Cats.xcdatamodeld */,
-				DAFC65F31E64F24700842225 /* Supporting Files */,
-				DAFC660D1E650E6300842225 /* CatsCollectionViewCell.h */,
-				DAFC660E1E650E6300842225 /* CatsCollectionViewCell.m */,
 				DAFC66101E65121200842225 /* Photo.h */,
 				DAFC66111E65121200842225 /* Photo.m */,
 				DAFC66131E656BE700842225 /* NetworkManager.h */,
 				DAFC66141E656BE700842225 /* NetworkManager.m */,
 				DA4C9B2B1E6C7A870023C89E /* DetailViewController.h */,
 				DA4C9B2C1E6C7A870023C89E /* DetailViewController.m */,
+				DAFC660D1E650E6300842225 /* CatsCollectionViewCell.h */,
+				DAFC660E1E650E6300842225 /* CatsCollectionViewCell.m */,
+				DAFC65F31E64F24700842225 /* Supporting Files */,
 			);
 			path = Cats;
 			sourceTree = "<group>";
@@ -109,6 +105,10 @@
 		DAFC65F31E64F24700842225 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				DAFC66021E64F24700842225 /* Assets.xcassets */,
+				DAFC66041E64F24700842225 /* LaunchScreen.storyboard */,
+				DAFC66071E64F24700842225 /* Info.plist */,
+				DAFC65FF1E64F24700842225 /* Cats.xcdatamodeld */,
 				DAFC65F41E64F24700842225 /* main.m */,
 			);
 			name = "Supporting Files";
