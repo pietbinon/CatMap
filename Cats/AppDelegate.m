@@ -2,15 +2,20 @@
 //  AppDelegate.m
 //  Cats
 //
-//  Created by Hyung Jip Moon on 2017-02-27.
-//  Copyright © 2017 leomoon. All rights reserved.
+//  Created by Pierre Binon on 2017-03-27.
+//  Copyright © 2017 Pierre Binon. All rights reserved.
 //
 
 #import "AppDelegate.h"
 
+
+
 @interface AppDelegate ()
 
 @end
+
+
+
 
 @implementation AppDelegate
 
@@ -50,19 +55,25 @@
 }
 
 
+
+
 #pragma mark - Core Data stack
 
 @synthesize persistentContainer = _persistentContainer;
 
-- (NSPersistentContainer *)persistentContainer {
+- (NSPersistentContainer *) persistentContainer {
+    
     // The persistent container for the application. This implementation creates and returns a container, having loaded the store for the application to it.
     @synchronized (self) {
-        if (_persistentContainer == nil) {
+        
+        if (self.persistentContainer == nil) {
+            
             _persistentContainer = [[NSPersistentContainer alloc] initWithName:@"Cats"];
-            [_persistentContainer loadPersistentStoresWithCompletionHandler:^(NSPersistentStoreDescription *storeDescription, NSError *error) {
+            [self.persistentContainer loadPersistentStoresWithCompletionHandler: ^(NSPersistentStoreDescription *storeDescription, NSError *error) {
                 if (error != nil) {
+                    
                     // Replace this implementation with code to handle the error appropriately.
-                    // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+                    // abort() causes the application to generate a crash log and terminate. Do not use this function in a shipping application, although it might be useful during development.
                     
                     /*
                      Typical reasons for an error here include:
@@ -72,6 +83,7 @@
                      * The store could not be migrated to the current model version.
                      Check the error message to determine what the actual problem was.
                     */
+                    
                     NSLog(@"Unresolved error %@, %@", error, error.userInfo);
                     abort();
                 }
@@ -82,14 +94,19 @@
     return _persistentContainer;
 }
 
+
+
+
 #pragma mark - Core Data Saving support
 
-- (void)saveContext {
+- (void) saveContext {
+    
     NSManagedObjectContext *context = self.persistentContainer.viewContext;
     NSError *error = nil;
     if ([context hasChanges] && ![context save:&error]) {
+        
         // Replace this implementation with code to handle the error appropriately.
-        // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+        // abort() causes the application to generate a crash log and terminate. Do not use this function in a shipping application, although it might be useful during development.
         NSLog(@"Unresolved error %@, %@", error, error.userInfo);
         abort();
     }

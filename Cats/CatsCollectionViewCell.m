@@ -2,11 +2,13 @@
 //  CatsCollectionViewCell.m
 //  Cats
 //
-//  Created by Hyung Jip Moon on 2017-02-27.
-//  Copyright © 2017 leomoon. All rights reserved.
+//  Created by Pierre Binon on 2017-03-27.
+//  Copyright © 2017 Pierre Binon. All rights reserved.
 //
 
 #import "CatsCollectionViewCell.h"
+
+
 
 @interface CatsCollectionViewCell() {
 
@@ -16,24 +18,29 @@
 
 @end
 
+
+
+
+
 @implementation CatsCollectionViewCell
 
-- (void)setPhoto:(Photo *)photo {
+- (void) setPhoto: (Photo *) photo {
     
     _photo = photo;
     self.photoLabel.text = self.photo.photoTitle;
 
-    self.networkManager = [[NetworkManager alloc]init];
+    self.networkManager = [[NetworkManager alloc] init];
     
-    [self.networkManager downloadImagesFromURL:self.photo.photoURL completion:^(UIImage *image) {
+    [self.networkManager downloadImagesFromURL: self.photo.photoURL completion: ^(UIImage *image) {
         self.catImageView.image = image;
     }];
 }
 
-- (void)prepareForReuse {
+
+- (void) prepareForReuse {
+    
     [super prepareForReuse];
     [self.networkManager.dataTask cancel];
-
-    
 }
+
 @end
