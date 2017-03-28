@@ -41,6 +41,9 @@
         }
                 
         NSError *jsonError = nil;
+                                          
+        //Deserialize the data using NSJSONSerializationusing the + JSONObjectWithData:options:error:
+        //which will return either an NSDictionary or NSArray
         NSDictionary *tempDictionary = [NSJSONSerialization JSONObjectWithData: data options: 0 error: &jsonError];
                                           
         if(jsonError) {
@@ -55,6 +58,8 @@
 
         for(NSDictionary *tempPhotoDictionary in photos) {
             
+            //Parse this data and create a Photo object. We only need the title, id, and url.
+            //You will have to generate an NSArray of these objects. Test your work.
             Photo *newPhoto = [[Photo alloc] initWithServer: [tempPhotoDictionary objectForKey: @"server"] initWithFarm: [tempPhotoDictionary objectForKey: @"farm"] initWithID: [tempPhotoDictionary objectForKey: @"id"] initWithSecret: [tempPhotoDictionary objectForKey: @"secret"] initWithTitle: [tempPhotoDictionary objectForKey: @"title"] initWithURL: url];
             
             [storeAllImages addObject:newPhoto];

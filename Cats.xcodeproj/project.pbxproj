@@ -84,19 +84,19 @@
 		DAFC65F21E64F24700842225 /* Cats */ = {
 			isa = PBXGroup;
 			children = (
+				DAFC66101E65121200842225 /* Photo.h */,
+				DAFC66111E65121200842225 /* Photo.m */,
 				DAFC65F61E64F24700842225 /* AppDelegate.h */,
 				DAFC65F71E64F24700842225 /* AppDelegate.m */,
 				DAFC65F91E64F24700842225 /* ViewController.h */,
 				DAFC65FA1E64F24700842225 /* ViewController.m */,
-				DAFC65FC1E64F24700842225 /* Main.storyboard */,
-				DAFC66101E65121200842225 /* Photo.h */,
-				DAFC66111E65121200842225 /* Photo.m */,
 				DAFC66131E656BE700842225 /* NetworkManager.h */,
 				DAFC66141E656BE700842225 /* NetworkManager.m */,
 				DA4C9B2B1E6C7A870023C89E /* DetailViewController.h */,
 				DA4C9B2C1E6C7A870023C89E /* DetailViewController.m */,
 				DAFC660D1E650E6300842225 /* CatsCollectionViewCell.h */,
 				DAFC660E1E650E6300842225 /* CatsCollectionViewCell.m */,
+				DAFC65FC1E64F24700842225 /* Main.storyboard */,
 				DAFC65F31E64F24700842225 /* Supporting Files */,
 			);
 			path = Cats;

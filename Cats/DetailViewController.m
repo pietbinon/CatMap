@@ -51,6 +51,11 @@
     self.mapView.region = MKCoordinateRegionMake (self.photo.coordinate, span);
     self.latitudeLabel.text = [NSString stringWithFormat: @"%f", self.photo.coordinate.latitude];
     self.longtitudeLabel.text = [NSString stringWithFormat: @"%f", self.photo.coordinate.longitude];
+    
+    //Use the Photo object to set the mapView's annotation property.
+    //Because the Photo object conforms to MKAnnotation its coordinate property and title will be used by the annotation.
+    //Call addAnnotation: on the mapView and pass it the photo object passed to the
+    //DetailViewController instance
     [self.mapView addAnnotation: self.photo];
 }
 
